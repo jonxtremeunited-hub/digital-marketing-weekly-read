@@ -17,16 +17,26 @@ DRY_RUN = os.environ.get("DRY_RUN") == "1"
 # Auth: in Domo Jupyter, attach a "Domo Access Token" account to this workspace and set its
 # alias below; locally we use env. The notebook needs a token that can query datasets, call AI,
 # update cards, and write filesets (owned by someone with those rights).
-ACCOUNT_ALIAS = "Weekly Read Domo Token"   # <-- name the attached access-token account this
+ACCOUNT_ALIAS = "Weekly Read Domo Token"   # attached Abstract Credential Store account
 def get_token():
+    # Abstract Credential Store exposes a single 'credentials' property to domojupyter;
+    # it may hold the raw token or a JSON blob. Locally, fall back to the env var.
     try:
-        import domojupyter as domo
-        for prop in ("domoAccessToken", "accessToken", "password", "token"):
-            try:
-                v = domo.get_account_property_value(ACCOUNT_ALIAS, prop)
-                if v: return v
-            except Exception:
-                pass
+        import domojupyter as domo, json as _json
+        raw = domo.get_account_property_value(ACCOUNT_ALIAS, "credentials")
+        if raw:
+            raw = raw.strip()
+            if raw[:1] in "{[":
+                try:
+                    obj = _json.loads(raw)
+                    if isinstance(obj, dict):
+                        for k in ("token", "DOMO_TOKEN", "accessToken", "domoAccessToken", "value"):
+                            if obj.get(k): return obj[k]
+                        strs = [v for v in obj.values() if isinstance(v, str) and v]
+                        if strs: return strs[0]
+                except Exception:
+                    pass
+            return raw
     except Exception:
         pass
     return os.environ["DOMO_TOKEN"]
