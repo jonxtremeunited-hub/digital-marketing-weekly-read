@@ -1,0 +1,58 @@
+{
+  "name": "Weekly Read Chat",
+  "version": "0.1.0",
+  "size": {
+    "width": 4,
+    "height": 2
+  },
+  "fullpage": true,
+  "fileName": "manifest.json",
+  "datasetsMapping": [],
+  "collectionsMapping": [],
+  "packageMapping": [
+    {
+      "alias": "apiProxy",
+      "parameters": [
+        { "alias": "method", "type": "text", "nullable": false, "isList": false, "children": null },
+        { "alias": "path", "type": "text", "nullable": false, "isList": false, "children": null },
+        { "alias": "body", "type": "text", "nullable": true, "isList": false, "children": null },
+        { "alias": "headers", "type": "text", "nullable": true, "isList": false, "children": null },
+        { "alias": "contentType", "type": "text", "nullable": true, "isList": false, "children": null }
+      ],
+      "output": { "alias": "result", "type": "text", "children": null }
+    }
+  ],
+  "manifest": {
+    "ignore": [
+      ".env",
+      ".env.*",
+      ".environment/**/*",
+      ".git",
+      ".git/**",
+      "node_modules/**/*",
+      "src/**/*",
+      "scripts/**/*",
+      "agent-docs/**/*",
+      "context/**/*",
+      "notebooks/**/*",
+      "code-engine/**/*",
+      ".github/**/*",
+      ".vscode/**/*",
+      "*.md",
+      "tsconfig.json",
+      "package.json",
+      "pnpm-lock.yaml",
+      "vite.config.ts",
+      "vitest.config.ts",
+      "tailwind.config.js",
+      "postcss.config.js",
+      "eslint.config.mjs",
+      ".prettierrc.json",
+      ".prettierignore",
+      "lefthook.yml",
+      "index.html"
+    ]
+  },
+  "id": "aa5341f7-2fb5-407d-ac3c-2f6fa84483af",
+  "proxyId": "61eb2b91-02e3-4957-a7c2-58872339a9a0"
+}

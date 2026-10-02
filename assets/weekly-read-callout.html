@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; background: transparent; }
+  body {
+    display: flex; align-items: center; justify-content: center;
+    padding: 18px;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision;
+  }
+  .card {
+    position: relative;
+    width: 240px; height: 404px; box-sizing: border-box;
+    padding: 28px 22px 24px;
+    display: flex; flex-direction: column;
+    background: linear-gradient(158deg, #1d3a5f 0%, #112441 100%);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 22px;
+    box-shadow: 0 9px 24px rgba(12,22,45,0.20);
+    color: #ffffff;
+    overflow: hidden;
+  }
+  /* faint radial glow behind the arrow for depth */
+  .card::before {
+    content: ""; position: absolute; top: -40px; left: -30px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,181,48,0.18) 0%, rgba(255,181,48,0) 70%);
+    pointer-events: none;
+  }
+  .sparkle { position: absolute; top: 22px; right: 24px; }
+  .arrow { margin: 2px 0 20px -2px; }
+  .headline {
+    margin: 0; font-size: 32px; font-weight: 700;
+    letter-spacing: -0.6px; line-height: 1.0;
+  }
+  .rule {
+    width: 46px; height: 4px; border-radius: 3px;
+    background: linear-gradient(90deg, #FFD36B, #FFA91F);
+    margin: 14px 0 0;
+  }
+  .prompt {
+    margin: 20px 0 0; font-size: 18px; font-weight: 500;
+    line-height: 1.44; color: #c9d8ec;
+  }
+  .prompt .em { color: #FFC24B; font-weight: 700; }
+  .spacer { flex: 1; }
+  .foot {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.2px;
+    color: #8ea6c6;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #35c88a; box-shadow: 0 0 0 3px rgba(53,200,138,0.18); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <!-- sparkle echoing the AI Chat icon -->
+    <svg class="sparkle" width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M12 1.5c.7 4.3 1.9 5.5 6.2 6.2-4.3.7-5.5 1.9-6.2 6.2-.7-4.3-1.9-5.5-6.2-6.2 4.3-.7 5.5-1.9 6.2-6.2Z" fill="#FFC24B"/>
+      <path d="M19 14c.3 1.9.9 2.5 2.8 2.8-1.9.3-2.5.9-2.8 2.8-.3-1.9-.9-2.5-2.8-2.8 1.9-.3 2.5-.9 2.8-2.8Z" fill="#FFC24B" opacity="0.75"/>
+    </svg>
+
+    <!-- fat up-arrow pointing at the AI Chat icon above -->
+    <svg class="arrow" width="76" height="152" viewBox="0 0 76 152" fill="none">
+      <defs>
+        <linearGradient id="amber" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFD873"/>
+          <stop offset="1" stop-color="#FFA81C"/>
+        </linearGradient>
+        <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FFB020" flood-opacity="0.45"/>
+        </filter>
+      </defs>
+      <path d="M38 5 L71 52 L53 52 L53 148 L23 148 L23 52 L5 52 Z"
+            fill="url(#amber)" stroke="url(#amber)" stroke-width="5"
+            stroke-linejoin="round" filter="url(#glow)"/>
+    </svg>
+
+    <h1 class="headline">Questions?</h1>
+    <div class="rule"></div>
+    <p class="prompt">Ask our <span class="em">Digital Marketing&nbsp;Analyst</span> agent</p>
+
+    <div class="spacer"></div>
+    <div class="foot"><span class="dot"></span>Live AI &middot; tap the ✦ above</div>
+  </div>
+</body>
+</html>

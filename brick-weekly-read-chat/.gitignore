@@ -1,0 +1,24 @@
+node_modules/
+dist/
+
+# Root-level secrets — consumed by Domo CLI + Node scripts (not Vite).
+# Anchored with `/` so these patterns don't match `.environment/.env*`,
+# which ship committed defaults plus `.local` overrides.
+/.env
+/.env.local
+/.env.*.local
+
+# Vite per-developer overrides — gitignored inside .environment/.
+.environment/.env.local
+.environment/.env.*.local
+
+*.log
+.DS_Store
+coverage/
+
+# Engagement-scoped: customer-confidential dumps live here, never committed.
+context/raw/
+
+# IDE / editor
+.vscode/.history
+.idea/

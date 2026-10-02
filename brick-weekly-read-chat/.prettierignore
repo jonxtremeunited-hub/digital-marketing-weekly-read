@@ -1,0 +1,11 @@
+dist/
+node_modules/
+coverage/
+public/app.js
+public/app.js.map
+pnpm-lock.yaml
+
+.env
+.env.*
+*.min.js
+*.min.css

@@ -1,0 +1,36 @@
+{
+  "_comment": "Inlined from pantry/scaffold/_shared/tsconfig.base.json at scaffold copy time. The 'strict + 6 extra flags' commitment lives here; to upgrade the team default, edit _shared/tsconfig.base.json and propagate via fresh scaffold instantiation.",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "useDefineForClassFields": true,
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@lib/*": ["./src/lib/*"]
+    }
+  },
+  "include": ["src/**/*", "scripts/**/*", "*.config.ts", "*.config.mjs", "vite.config.ts", "vitest.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}

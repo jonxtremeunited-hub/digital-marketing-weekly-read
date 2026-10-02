@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "_comment": "Copied from pantry/scaffold/_shared/prettier.config.base.json. To diverge from the team default, edit here and document why.",
+
+  "singleQuote": true,
+  "semi": true,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "endOfLine": "lf",
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
